@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foto y Sobre mí</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 0;
+            background-image: url('images/futuristica.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px 30px;
+            line-height: 1.6;
+        }
+        h1 {
+            text-align: center;
+            font-size: 32px;
+            color: #0b3954;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #4a4a4a;
+            font-size: 16px;
+        }
+        img {
+            border-radius: 50%;
+            border: 2px solid #0b3954;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="photo">
+            <img src="images/tu-imagen.png" alt="Foto">
+        </div>
+        <h1>Julio C. Durán Casado</h1>
+        <p>"La sociedad es un sistema, y todo sistema puede ser corrompido."</p>
+
+        <h2>Sobre mí</h2>
+        <p>Profesional apasionado por el diseño, implementación y seguridad de sistemas de redes...</p>
+    </div>
+</body>
+</html>
