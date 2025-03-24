@@ -43,7 +43,7 @@
             margin: 0 auto;
         }
 
-        /* Botón "Atrás" */
+        /* Botón "Atrás" estilo flecha */
         .back-button {
             position: absolute;
             top: 10px;
@@ -59,21 +59,20 @@
             cursor: pointer;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        .back-button div {
-            width: 25px;
-            height: 3px;
-            background-color: white; /* Color de las líneas */
-            margin: 4px 0;
+        .back-button::before {
+            content: '';
+            display: block;
+            width: 0; 
+            height: 0; 
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-right: 16px solid white; /* Color de la flecha */
         }
     </style>
 </head>
 <body>
     <!-- Botón "Atrás" -->
-    <button class="back-button" onclick="goBack()">
-        <div></div>
-        <div></div>
-        <div></div>
-    </button>
+    <button class="back-button" onclick="goBack()"></button>
 
     <script>
         // Función para regresar a la página principal
