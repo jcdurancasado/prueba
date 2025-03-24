@@ -10,7 +10,7 @@
             background-color: #f4f6f9;
             margin: 0;
             padding: 0;
-            background-image: url('images/futuristica.jpg');
+            background-image: url('images/futuristica.jpg'); /* Imagen como fondo */
             background-size: cover;
             background-position: center;
         }
@@ -42,9 +42,46 @@
             display: block;
             margin: 0 auto;
         }
+
+        /* Botón "Atrás" */
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 40px;
+            height: 40px;
+            background-color: #0b3954; /* Azul oscuro */
+            border: none;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .back-button div {
+            width: 25px;
+            height: 3px;
+            background-color: white; /* Color de las líneas */
+            margin: 4px 0;
+        }
     </style>
 </head>
 <body>
+    <!-- Botón "Atrás" -->
+    <button class="back-button" onclick="goBack()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </button>
+
+    <script>
+        // Función para regresar a la página principal
+        function goBack() {
+            window.location.href = 'index.html'; // Cambia 'index.html' si tu página principal tiene otro nombre
+        }
+    </script>
+
     <div class="container">
         <div class="photo">
             <img src="images/tu-imagen.png" alt="Foto">
