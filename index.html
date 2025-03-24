@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Julio C. Durán Casado</title>
 
-	<!-- Metadatos Open Graph -->
+    <!-- Metadatos Open Graph -->
     <meta property="og:title" content="Julio C. Durán Casado" />
     <meta property="og:description" content="Técnico en Redes, Ciberseguridad y Soporte Informático." />
     <meta property="og:image" content="https://jcdurancasado.github.io/prueba/images/tu-imagen3.jpg" />
     <meta property="og:image:alt" content="Foto de Julio C. Durán Casado" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://jcdurancasado.github.io/prueba" />
-	
+    
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -77,22 +77,92 @@
             padding-left: 10px;
         }
         /* Efecto de iluminación ajustado en los iconos sin borde */
-    .social-media img {
-        display: inline-block;
-        border: none; /* Se elimina el borde */
-        border-radius: 50%; /* Asegura la forma redondeada */
-        width: 30px; /* Tamaño ajustado */
-        height: 30px; /* Tamaño ajustado */
-        margin: 0 10px; /* Espaciado entre íconos */
-        transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
-    }
-    .social-media img:hover {
-        box-shadow: 0 0 10px #0b3954; /* Efecto de iluminación */
-        transform: scale(1.1); /* Agranda ligeramente el icono */
-    }
+        .social-media img {
+            display: inline-block;
+            border: none;
+            border-radius: 50%; /* Asegura la forma redondeada */
+            width: 30px; /* Tamaño ajustado */
+            height: 30px; /* Tamaño ajustado */
+            margin: 0 10px; /* Espaciado entre íconos */
+            transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        .social-media img:hover {
+            box-shadow: 0 0 10px #0b3954; /* Efecto de iluminación */
+            transform: scale(1.1); /* Agranda ligeramente el icono */
+        }
+
+        /* Botón y menú desplegable */
+        .menu-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 40px;
+            height: 40px;
+            background-color: #0b3954; /* Azul oscuro */
+            border: none;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu-button div {
+            width: 25px;
+            height: 3px;
+            background-color: white; /* Color de las líneas */
+            margin: 4px 0;
+        }
+
+        .menu-options {
+            position: absolute;
+            top: 60px;
+            left: 10px;
+            background-color: #ffffff; /* Fondo del menú */
+            border: 1px solid #0b3954;
+            border-radius: 5px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: none; /* Oculto por defecto */
+            z-index: 10;
+        }
+
+        .menu-options a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #0b3954; /* Azul oscuro */
+            font-size: 14px;
+        }
+
+        .menu-options a:hover {
+            background-color: #f4f6f9; /* Fondo al pasar el mouse */
+        }
     </style>
 </head>
 <body>
+    <!-- Botón del menú -->
+    <button class="menu-button" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </button>
+
+    <!-- Opciones del menú -->
+    <div class="menu-options" id="menuOptions">
+        <a href="#opcion1">Opción 1</a>
+        <a href="#opcion2">Opción 2</a>
+        <a href="#opcion3">Opción 3</a>
+    </div>
+
+    <script>
+        // Función para mostrar u ocultar el menú
+        function toggleMenu() {
+            const menu = document.getElementById('menuOptions');
+            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+        }
+    </script>
+
     <div class="container">
         <div class="photo">
             <img src="images/tu-imagen.png" alt="Foto">
