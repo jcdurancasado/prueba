@@ -51,13 +51,14 @@
     <div class="container">
         <h1>Centro Tecnológico Comendador</h1>
         <h2>Consulta de Certificados</h2>
-        <input type="text" id="cedula" placeholder="Ingrese su cédula" oninput="formatearCedula()">
+        <input type="text" id="cedula" placeholder="Ingrese su cédula (000-0000000-0 o 00000000000)" oninput="formatearCedula()">
         <button onclick="buscarCertificado()">Buscar</button>
         <div class="result" id="resultado"></div>
     </div>
     <script>
         function formatearCedula() {
             let input = document.getElementById("cedula");
+            // Elimina todos los caracteres no numéricos
             input.value = input.value.replace(/[^0-9]/g, "");
         }
 
