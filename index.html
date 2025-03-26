@@ -3,487 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Julio C. Durán Casado</title>
-
-    <!-- Metadatos Open Graph -->
-    <meta property="og:title" content="Julio C. Durán Casado" />
-    <meta property="og:description" content="Técnico en Redes, Ciberseguridad y Soporte Informático." />
-    <meta property="og:image" content="https://jcdurancasado.github.io/prueba/images/tu-imagen3.jpg" />
-    <meta property="og:image:alt" content="Foto de Julio C. Durán Casado" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://jcdurancasado.github.io/prueba" />
-    
+    <title>Consulta de Certificados</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f6f9;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
             margin: 0;
             padding: 0;
-            background-image: url('images/futuristica.jpg'); /* Imagen como fondo */
-            background-size: cover;
-            background-position: center;
         }
         .container {
-            max-width: 900px;
-            margin: 20px auto;
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            padding: 20px 30px;
-            line-height: 1.6;
+            width: 50%;
+            margin: 50px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         h1 {
-            text-align: center;
-            font-size: 32px;
-            color: #0b3954; /* Azul más oscuro */
-            margin-bottom: 10px;
+            color: #d32f2f;
         }
-        h2 {
-            color: #ffffff;
-            background-color: #0b3954; /* Azul más oscuro */
+        input[type="text"] {
+            width: 80%;
             padding: 10px;
-            border-radius: 4px;
-            font-size: 20px;
-        }
-        p, li {
-            color: #4a4a4a;
-            font-size: 16px;
-            margin: 5px 0;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        a {
-            color: #0b3954; /* Azul más oscuro */
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .photo {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        img {
-            border-radius: 50%;
-            border: 2px solid #0b3954; /* Borde reducido a 2px */
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-        }
-        .section {
-            margin-bottom: 30px;
-            border-left: 4px solid #0b3954; /* Azul más oscuro */
-            padding-left: 10px;
-        }
-        /* Efecto de iluminación ajustado en los iconos sin borde */
-        .social-media img {
-            display: inline-block;
-            border: none;
-            border-radius: 50%; /* Asegura la forma redondeada */
-            width: 30px; /* Tamaño ajustado */
-            height: 30px; /* Tamaño ajustado */
-            margin: 0 10px; /* Espaciado entre íconos */
-            transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
-        }
-        .social-media img:hover {
-            box-shadow: 0 0 10px #0b3954; /* Efecto de iluminación */
-            transform: scale(1.1); /* Agranda ligeramente el icono */
-        }
-
-        /* Botón y menú desplegable */
-        .menu-button {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            width: 40px;
-            height: 40px;
-            background-color: #0b3954; /* Azul oscuro */
-            border: none;
+            margin: 10px 0;
+            border: 1px solid #ccc;
             border-radius: 5px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            text-align: center;
+        }
+        button {
+            background-color: #1976d2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
             cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-
-        .menu-button div {
-            width: 25px;
-            height: 3px;
-            background-color: white; /* Color de las líneas */
-            margin: 4px 0;
+        button:hover {
+            background-color: #1259a7;
         }
-
-        .menu-options {
-            position: absolute;
-            top: 60px;
-            left: 10px;
-            background-color: #ffffff; /* Fondo del menú */
-            border: 1px solid #0b3954;
-            border-radius: 5px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            display: none; /* Oculto por defecto */
-            z-index: 10;
-        }
-
-        .menu-options a {
-            display: block;
-            padding: 10px;
-            text-decoration: none;
-            color: #0b3954; /* Azul oscuro */
-            font-size: 14px;
-        }
-
-        .menu-options a:hover {
-            background-color: #f4f6f9; /* Fondo al pasar el mouse */
+        .result {
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <!-- Botón del menú -->
-    <button class="menu-button" onclick="toggleMenu()">
-        <div></div>
-        <div></div>
-        <div></div>
-    </button>
-
-    <!-- Opciones del menú -->
-    <div class="menu-options" id="menuOptions">
-        <a href="mas_informacion.html">Opción 1</a> <!-- Enlace actualizado -->
-        <a href="#opcion2">Opción 2</a>
-        <a href="#opcion3">Opción 3</a>
+    <div class="container">
+        <h1>Centro Tecnológico Comendador</h1>
+        <h2>Consulta de Certificados</h2>
+        <input type="text" id="cedula" placeholder="Ingrese su cédula" oninput="formatearCedula()">
+        <button onclick="buscarCertificado()">Buscar</button>
+        <div class="result" id="resultado"></div>
     </div>
-
     <script>
-        // Función para mostrar u ocultar el menú
-        function toggleMenu() {
-            const menu = document.getElementById('menuOptions');
-            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+        function formatearCedula() {
+            let input = document.getElementById("cedula");
+            input.value = input.value.replace(/[^0-9]/g, "");
+        }
+
+        function buscarCertificado() {
+            let cedula = document.getElementById("cedula").value;
+            if (cedula.length === 0) {
+                document.getElementById("resultado").innerHTML = "Por favor, ingrese un número de cédula válido.";
+                return;
+            }
+
+            fetch('/buscar', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ cedula: cedula })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.encontrado) {
+                    document.getElementById("resultado").innerHTML = `
+                        <p>Nombre: ${data.nombre} ${data.apellido}</p>
+                        <p>Curso: ${data.curso}</p>
+                    `;
+                } else {
+                    document.getElementById("resultado").innerHTML = "No se encontró información para esta cédula.";
+                }
+            });
         }
     </script>
-
-    <div class="container">
-        <div class="photo">
-            <img src="images/tu-imagen.png" alt="Foto">
-        </div>
-        <h1 style="text-align: center; font-family: inherit; margin-top: 10px;">Julio C. Durán Casado</h1>
-        <p style="text-align: center; font-size: 22px; font-weight: bold; color: #0b3954; margin: 0;">Técnico en Redes, Ciberseguridad y Soporte Informático</p>
-        <p style="font-size: 14px; font-family: 'Courier New', Courier, monospace; text-align: center; color: #333333;">"La sociedad es un sistema, y todo sistema puede ser corrompido."</p>
-        
-        <!-- Sección de Redes Sociales -->
-        <div class="social-media" style="text-align: center; margin-top: 20px;">
-            <a href="https://wa.me/18296559913" target="_blank">
-                <img src="images/whatsapp-icon.png" alt="WhatsApp">
-            </a>
-            <a href="https://www.instagram.com/jcdurancasado" target="_blank">
-                <img src="images/instagram-icon.png" alt="Instagram">
-            </a>
-            <a href="https://www.facebook.com/jdurancasado" target="_blank">
-                <img src="images/facebook-icon.png" alt="Facebook">
-            </a>
-            <a href="https://twitter.com/jcdurancasado" target="_blank">
-                <img src="images/twitter-icon.png" alt="Twitter">
-            </a>
-            <a href="https://www.linkedin.com/in/jcdurancasado" target="_blank">
-                <img src="images/linkedin-icon.png" alt="LinkedIn">
-            </a>
-	    <a href="https://www.tiktok.com/@jcdurancasado" target="_blank">
-                <img src="images/tiktok-icon.png" alt="Tiktok">
-            </a>
-	    <a href="https://t.me/jcdurancasado" target="_blank">
-                <img src="images/telegram-icon.png" alt="Telegram">
-            </a>
-            <a href="https://www.threads.net/@jcdurancasado" target="_blank">
-                <img src="images/threads-icon.png" alt="Threads">
-            </a>
-	    <a href="https://www.twitch.tv/jcdurancasado" target="_blank">
-                <img src="images/twitch-icon.png" alt="Twitch">
-            </a>
-            <a href="https://youtube.com/@jcdurancasado" target="_blank">
-                <img src="images/youtube-icon.png" alt="YouTube">
-            </a>
-	    <a href="https://www.paypal.com/paypalme/jcdurancasado" target="_blank">
-                <img src="images/paypal-icon.png" alt="Paypal">
-            </a>
-	    <a href="https://airtm.me/jcdurancasado" target="_blank">
-                <img src="images/airtm-icon.png" alt="Airtm">
-            </a>
-        </div>
-
-        <div class="section">
-            <h2>Sobre mí</h2>
-            <p style="text-align: justify;">Profesional apasionado por el diseño, implementación y seguridad de sistemas de redes, con sólida experiencia en ciberseguridad, soporte técnico informático, y docencia tanto virtual como presencial. Comprometido con impulsar el desarrollo de equipos de trabajo y satisfacer las demandas tecnológicas de organizaciones modernas.</p>
-        </div>
-
-	<div class="section">
-            <h2>Datos Personales</h2>
-            <ul>
-                <li><strong>Lugar de Nacimiento:</strong> San Jose de Ocoa, R.D.</li>
-                <li><strong>Fecha de Nacimiento:</strong> 00 de 00000 de 0000</li>
-                <li><strong>Cédula:</strong> 000-0000000-0</li>
-            </ul>
-        </div>
-	    
-        <div class="section">
-            <h2>Habilidades</h2>
-            <ul>
-                <li>Experiencia en docencia virtual</li>
-                <li>Gestión de redes</li>
-                <li>Seguridad informática</li>
-                <li>Resolución de problemas técnicos</li>
-                <li>Optimización de sistemas</li>
-                <li>Soporte Técnico de Alta Calidad</li>
-            </ul>
-        </div>
-        
-        <div class="section">
-            <h2>Disponibilidad</h2>
-            <ul>
-                <li>Horaria</li>
-                <li>Geográfica</li>
-            </ul>
-        </div>
-       
-        <div class="section">
-            <h2>Educación</h2>
-            <ul>
-                <li>
-                    <strong>Bachiller</strong>
-                    <div>Liceo Secundario Gastón Fernando Deligne</div>
-                    <div>Comendador, Elías Piña, R.D.</div>
-                </li>
-                <li>
-                    <strong>Ingeniería en Redes y Telecomunicaciones</strong>
-                    <div>Universidad del Caribe - (9no Cuatrimestre)</div>
-                    <div>Santo Domingo, Distrito Nacional, R.D.</div>
-                </li>
-            </ul>
-          </div>
-       
-        <div class="section">
-            <h2>Experiencia Laboral</h2>
-            <ul>
-                <li>
-                    <strong>Facilitador Tecnológico</strong>
-                    <div>Centros Tecnológicos Comunitarios (CTC)</div>
-                    <div>(22/01/2019 - Actual)</div>
-                </li>
-                <li>
-                    <strong>Instructor Virtual</strong>
-                    <div>Cisco Networking Academy</div>
-                    <div>(30/05/2019 - Actual)</div>
-                </li>
-                <li>
-                    <strong>Digitador Técnico</strong>
-                    <div>Esc. Vocacional de las FF.AA. y la P.N. - Arroyo Cano</div>
-                    <div>(01/06/2017 - 14/01/2019)</div>
-                </li>
-                <li>
-                    <strong>Instructor Virtual</strong>
-                    <div>Oracle Academy</div>
-                    <div>(02/08/2019 - 14/01/2023)</div>
-                </li>
-                <li>
-                    <strong>Digitador / Despachador</strong>
-                    <div>Cafetería para Oficiales de la F.A.D</div>
-                    <div>(01/06/2011 - 01/06/2012)</div>
-                </li>
-                <li>
-                    <strong>Digitador / Despachador / Cajero</strong>
-                    <div>Club de Alistado de la F.A.D.</div>
-                    <div>(01/01/2011 - 01/06/2011)</div>
-                </li>
-            </ul>
-          </div>
-        
-         <div class="section">
-            <h2>Contacto</h2>
-            <ul>
-                <li><strong>Tel.:</strong>+1 829-655-9913</li>
-                <li><strong>Email:</strong> <a href="mailto:jcdurancasado@gmail.com">jcdurancasado@gmail.com</a></li>
-                <li><strong>Dirección:</strong> C/ 0000 0000 0000 0000, 0000, 0000 0000, R.D.</li>
-            </ul>
-        </div>
-        
-<div class="section">
-            <h2>Referencia Personal</h2>
-            <ul>
-                <li>
-                    <strong>Ing. Leidy Rossé Paniagua</strong>
-                    <div>+1 849-264-2859</div>
-                </li>
-                <li>
-                    <strong>Carmen E. Castillo Valenzuela</strong>
-                    <div>+1 849-456-3270</div>
-                </li>
-                 <li>
-                    <strong>Licdo. Manuel Peralta</strong>
-                    <div>+1 829-363-1523</div>
-                </li>
-            </ul>
-          </div>
-        
-        <div class="section">
-            <h2>Cursos</h2>
-            <ul>
-                <li>
-                    <strong>Derechos Humanos y Derecho Internacional Humanitario</strong>
-                    <div>Escuela de Graduados en Derechos Humanos y Derecho Internacional Humanitario (FF.AA.)</div>
-                </li>
-                <li>
-                    <strong>Atención al Ciudadano y Calidad en el Servicio</strong>
-                    <div>Instituto Nacional de Administración Pública (INAP)</div>
-                </li>
-                <li>
-                    <strong>Acceso a la Información Pública: un Derecho de Todos</strong>
-                    <div>Instituto Nacional de Administración Pública (INAP)</div>
-                </li>
-                <li>
-                    <strong>Manejador de Programas de Oficina e Internet</strong>
-                    <div>Instituto Nacional de Formación Técnico Profesional (INFOTEP)</div>
-                </li>
-                 <li>
-                    <strong>Tutor para la Formación en Ambientes Virtuales</strong>
-                    <div>Instituto Nacional de Formación Técnico Profesional (INFOTEP)</div>
-                </li>
-                 <li>
-                    <strong>Habilitación Digital</strong>
-                    <div>Instituto Nacional de Formación Técnico Profesional (INFOTEP)</div>
-                </li>
-                 <li>
-                    <strong>Secretariado Ejecutivo</strong>
-                    <div>Instituto Nacional de Formación Técnico Profesional (INFOTEP)</div>
-                </li>
-                 <li>
-                    <strong>Diplomado de Auditoría en Ciberseguridad y Ciberriesgos</strong>
-                    <div>Instituto Tecnológico de Las Américas (ITLA)</div>
-                </li>
-                <li>
-                    <strong>Manejo de Buenas Prácticas Frente a Incidentes Tecnológicos</strong>
-                    <div>Instituto Nacional de Formación Técnico Profesional (INFOTEP)</div>
-                </li>
-                <li>
-                    <strong>Metodología Docente para Facilitadores</strong>
-                    <div>Centros Tecnológicos Comunitarios (CTC)</div>
-                </li>
-                <li>
-                    <strong>Desarrollo y Certificación de Competencias Digitales para Docentes</strong>
-                    <div>Microsoft / Red Qualitas / Centros Tecnológicos Comunitarios (CTC)</div>
-                </li>
-                <li>
-                    <strong>Alfabetización Tecnológica para Educadores: diseño de aprendizaje siglo XXI</strong>
-                    <div>Microsoft</div>
-                </li>
-                <li>
-                    <strong>Diplomado en Aprendizaje híbrido: La transformación digital de las prácticas de la enseñanza</strong>
-                    <div>Microsoft / Red Qualitas / Centros Tecnológicos Comunitarios (CTC)</div>
-                </li>
-                <li>
-                    <strong>Administración de las Tecnologías de la Información</strong>
-                    <div>Universidad de Palermo</div>
-                </li>
-                <li>
-                    <strong>Técnico en Informática</strong>
-                    <div>Centros Tecnológicos Comunitarios (CTC)</div>
-                </li>
-                <li>
-                    <strong>Soporte Técnico Informático (IT Essentials)</strong>
-                    <div>Cisco Networking Academy (CISCO)</div>
-                </li>
-                <li>
-                    <strong>CCNA 1: Introducción a las Redes</strong>
-                    <div>Cisco Networking Academy (CISCO)</div>
-                </li>
-                <li>
-                    <strong>CCNA 2: Fundamentos de Conmutación, Enrutamiento e Inalámbricos</strong>
-                    <div>Cisco Networking Academy (CISCO)</div>
-                </li>
-                <li>
-                    <strong>CCNA 3: Redes Empresariales, Seguridad y Automatización</strong>
-                    <div>Cisco Networking Academy (CISCO)</div>
-                </li>
-                <li>
-                    <strong>Cloud Computing o Diseño y Desarrollo en las Nubes</strong>
-                    <div>Instituto Nacional de Formación Técnico Profesional (INFOTEP)</div>
-                </li>
-                <li>
-                    <strong>Manejo De Sistema Operativo Linux</strong>
-                    <div>Instituto Nacional de Formación Técnico Profesional (INFOTEP)</div>
-                </li>
-                <li>
-                    <strong>Asociado en Operaciones de Ciberseguridad (Cisco CyberOps Associate)</strong>
-                    <div>Cisco Networking Academy (CISCO)</div>
-                </li>
-                <li>
-                    <strong>Control Inteligente de Centros de Datos y Entornos Informáticos</strong>
-                    <div>HM Consulting: Capacitación y Consultoría</div>
-                </li>
-                <li>
-                    <strong>Seguridad Informática: Pruebas de Instrucción con Kali Linux</strong>
-                    <div>Academia de Entrenamientos en Ciberseguridad DSTEAM</div>
-                </li>
-                <li>
-                    <strong>Ciberseguridad Inteligente: Como proteger sus activos digitales e información</strong>
-                    <div>HM Consulting: Capacitación y Consultoría</div>
-                </li>
-                <li>
-                    <strong>Seguridad de la Red (Networking Security)</strong>
-                    <div>Cisco Networking Academy (CISCO)</div>
-                </li>
-                <li>
-                    <strong>Cree su Nube Hibrida centrada en sus Datos y Opere desde la Nube cuando le convenga</strong>
-                    <div>HM Consulting: Capacitación y Consultoría</div>
-                </li>
-                <li>
-                    <strong>Fundamentos de Ciberseguridad (Cybersecurity Essentials)</strong>
-                    <div>Cisco Networking Academy (CISCO)</div>
-                </li>
-                <li>
-                    <strong>Fundamentos de Redes (Networking Essentials)</strong>
-                    <div>Cisco Networking Academy (CISCO)</div>
-                </li>
-                <li>
-                    <strong>Computación en la Nube (Cloud Computing 101)</strong>
-                    <div>Amazon AWS Educate</div>
-                </li>
-                <li>
-                    <strong>Fundamentos de Computo Forense</strong>
-                    <div>Seguridad Cero</div>
-                </li>
-                <li>
-                    <strong>Gestión de la Ciberseguridad</strong>
-                    <div>Seguridad Cero</div>
-                </li>
-                <li>
-                    <strong>Competencias Digitales. Herramientas de ofimática (Microsoft Word, Excel, Power Point)</strong>
-                    <div>Universidad Autónoma de Barcelona</div>
-                </li>
-                <li>
-                    <strong>Técnicas de Coaching</strong>
-                    <div>Instituto Nacional de Formación Técnico Profesional (INFOTEP)</div>
-                </li>
-                <li>
-                    <strong>Fundamentos del IoT: Seguridad del IoT</strong>
-                    <div>Cisco Networking Academy (CISCO)</div>
-                </li>
-                <li>
-                    <strong>Básico de Soporte Técnico</strong>
-                    <div>Microsoft Virtual Academy</div>
-                </li>
-                <li>
-                    <strong>Formación de Formadores</strong>
-                    <div>Microsoft / Eidos Global / The Trust for the Americas</div>
-                </li>
-                <li>
-                    <strong>Cisco Meraki: Importancia del Correcto Control, Gestión y Seguridad de Redes WIFI</strong>
-                    <div>HM Consulting: Capacitación y Consultoría</div>
-                </li>
-                <li>
-                    <strong>Gestión y Respuestas a Incidentes Tecnológicos</strong>
-                    <div>Academia ESET</div>
-                </li>
-            </ul>
-        </div>
 </body>
 </html>
