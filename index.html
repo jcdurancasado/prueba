@@ -5,46 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consulta de Certificados</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            width: 50%;
-            margin: 50px auto;
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            color: #d32f2f;
-        }
-        input[type="text"] {
-            width: 80%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            text-align: center;
-        }
-        button {
-            background-color: #1976d2;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #1259a7;
-        }
-        .result {
-            margin-top: 20px;
-        }
+        /* ... (tu CSS) ... */
     </style>
 </head>
 <body>
@@ -62,9 +23,15 @@
 
         function formatearCedula() {
             let input = document.getElementById("cedula");
-            // Elimina todos los caracteres no numéricos
             input.value = input.value.replace(/[^0-9]/g, "");
         }
+
+        // Datos del Excel incrustados en JavaScript (¡NO es ideal para grandes conjuntos de datos!)
+        let datosExcel = [
+            { cedula: "12345678901", nombre: "Juan", apellido: "Pérez", curso: "Curso de Redes" },
+            { cedula: "98765432109", nombre: "María", apellido: "Gómez", curso: "Curso de Electrónica" },
+            // Agrega aquí más datos de tu Excel
+        ];
 
         function buscarCertificado() {
             let cedula = document.getElementById("cedula").value;
@@ -73,24 +40,16 @@
                 return;
             }
 
-            fetch('/buscar', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ cedula: cedula })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.encontrado) {
-                    document.getElementById("resultado").innerHTML = `
-                        <p>Nombre: ${data.nombre} ${data.apellido}</p>
-                        <p>Curso: ${data.curso}</p>
-                    `;
-                } else {
-                    document.getElementById("resultado").innerHTML = "No se encontró información para esta cédula.";
-                }
-            });
+            let resultado = datosExcel.find(item => item.cedula === cedula);
+
+            if (resultado) {
+                document.getElementById("resultado").innerHTML = `
+                    <p>Nombre: ${resultado.nombre} ${resultado.apellido}</p>
+                    <p>Curso: ${resultado.curso}</p>
+                `;
+            } else {
+                document.getElementById("resultado").innerHTML = "No se encontró información para esta cédula.";
+            }
         }
     </script>
 </body>
